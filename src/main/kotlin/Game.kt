@@ -85,21 +85,6 @@ class Game {
         val shipToCursor = cursorVector - ship.position
         var angle = atan2(y = shipToCursor.y, x = shipToCursor.x)
 
-    /*    Modifier.onKeyEvent {
-            if (it.key == Key.W) {
-                ship.visualAngle += 10
-                ship.movementVector = ship.movementVector + (shipToCursor.normalized * floatDelta.toDouble())
-                println("w")
-            }else if(it.key == Key.S){
-                ship.visualAngle -= 10
-                ship.movementVector = ship.movementVector + (shipToCursor.normalized * floatDelta.toDouble())
-                println("s")
-            }
-            false
-        }*/
-
-
-
         ship.visualAngle = shipToCursor.angle()
 
         ship.movementVector = ship.movementVector + (shipToCursor.normalized * floatDelta.toDouble())
