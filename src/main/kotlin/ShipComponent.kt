@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Ship(shipData: ShipData) {
     val shipSize = shipData.size.dp
+    var vidas=shipData.vidas
     Box(
         Modifier
             .offset(shipData.xOffset, shipData.yOffset)

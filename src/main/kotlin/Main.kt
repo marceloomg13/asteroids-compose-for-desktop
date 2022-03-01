@@ -11,6 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.input.pointer.pointerMoveFilter
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
@@ -34,9 +37,17 @@ fun main() = Window(size = IntSize(800, 900), title = "Asteroids for Desktop") {
             Button({
                 game.startGame()
             }) {
-                Text("Play")
+                Text("Average mode")
             }
+            Button({
+                game.startGameHard()
+            }) {
+                Text("Hard Mode")
+            }
+
             Text(game.gameStatus, modifier = Modifier.align(Alignment.CenterVertically).padding(horizontal = 16.dp), color = Color.White)
+            Text(game.gameLifes, modifier = Modifier.align(Alignment.CenterVertically).padding(horizontal = 16.dp), color = Color.White)
+            Text("puntos: "+game.puntos.toString(), modifier = Modifier.align(Alignment.CenterVertically).padding(horizontal = 16.dp), color = Color.White)
         }
         Box(modifier = Modifier
             .aspectRatio(1.0f)
@@ -68,6 +79,7 @@ fun main() = Window(size = IntSize(800, 900), title = "Asteroids for Desktop") {
                         is ShipData -> Ship(it)
                         is BulletData -> Bullet(it)
                         is AsteroidData -> Asteroid(it)
+                        is AsteroideData -> Asteroide(it)
                     }
                 }
             }

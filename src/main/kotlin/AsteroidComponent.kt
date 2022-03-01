@@ -22,3 +22,15 @@ fun Asteroid(asteroidData: AsteroidData) {
             .background(Color(102, 102, 153))
     )
 }
+@Composable
+fun Asteroide(AsteroideData: AsteroideData) {
+    val asteroidSize = AsteroideData.size.dp
+    Box(
+        Modifier
+            .offset(AsteroideData.xOffset, AsteroideData.yOffset)
+            .size(asteroidSize)
+            .rotate(AsteroideData.angle.toFloat())
+            .clip(CircleShape)
+            .background(Color(153, 102, 102))
+    )
+}

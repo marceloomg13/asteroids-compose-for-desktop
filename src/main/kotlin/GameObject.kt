@@ -7,7 +7,7 @@ import org.openrndr.math.mod
 class ShipData : GameObject() {
     override var size: Double = 40.0
     var visualAngle: Double = 0.0
-
+    var vidas=3
     fun fire(game: Game) {
         val ship = this
         game.gameObjects.add(BulletData(ship.speed * 4.0, ship.visualAngle, ship.position))
@@ -19,9 +19,14 @@ class AsteroidData(speed: Double = 0.0, angle: Double = 0.0, position: Vector2 =
     override var size: Double = 120.0
 }
 
+class AsteroideData(speed: Double = 0.0, angle: Double = 0.0, position: Vector2 = Vector2.ZERO) :
+    GameObject(speed, angle, position) {
+    override var size: Double = 200.0
+}
+
 class BulletData(speed: Double = 0.0, angle: Double = 0.0, position: Vector2 = Vector2.ZERO) :
     GameObject(speed, angle, position) {
-    override val size: Double = 4.0
+    override val size: Double = 20.0
 }
 
 sealed class GameObject(speed: Double = 0.0, angle: Double = 0.0, position: Vector2 = Vector2.ZERO) {
